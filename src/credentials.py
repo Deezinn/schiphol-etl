@@ -8,4 +8,4 @@ credentials = {
    "app_key": os.getenv('app_key')
 }
 
-print(credentials)
+
