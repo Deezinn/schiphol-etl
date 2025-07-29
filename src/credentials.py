@@ -4,9 +4,8 @@ import os
 load_dotenv()
 
 credentials = {
-   "senha": os.getenv('senha'),
-   "email": os.getenv('email'),
-   "usuario": os.getenv('usuario')
+   "app_id": os.getenv('app_id'),
+   "app_key": os.getenv('app_key')
 }
 
 print(credentials)
