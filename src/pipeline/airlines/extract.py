@@ -7,7 +7,10 @@ class AirlinesHttp:
       pass
 
    def getAirlines(self, url):
-      result = requests.get(url, headers=credentials)
+      try:
+         result = requests.get(url, headers=credentials)
+      except Exception as e:
+         raise e
       return print(result.json())
 
 

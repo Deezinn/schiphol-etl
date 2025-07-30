@@ -9,8 +9,8 @@ class FlightsHttp:
    def getFlights(self, url):
       try:
          result = requests.get(url, headers=credentials)
-      except HTTPError:
-         raise HTTPError("Erro no método http")
+      except Exception as e:
+         raise e
 
       return result.json()
 
