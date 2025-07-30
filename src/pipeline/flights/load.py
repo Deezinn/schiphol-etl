@@ -8,6 +8,6 @@ def save_in_csv():
    dataframe.to_csv('flights.csv', index_label='index')
    return dataframe
 
-print(save_in_csv())
+save_in_csv()
 
 
