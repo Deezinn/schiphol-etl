@@ -11,7 +11,5 @@ class AirlinesHttp:
          result = requests.get(url, headers=credentials)
       except Exception as e:
          raise e
-      return print(result.json())
+      return result.json()
 
-
-air = AirlinesHttp().getAirlines('https://api.schiphol.nl/public-flights/airlines?page=1&sort=%2Biata')
