@@ -69,9 +69,3 @@ class SchipholHttp:
       else:
          return 'Não achamos sua fonte de dados'
 
-a = SchipholHttp()
-a.getUrlApiFromJson()
-print(a.getFlights(),'flights')
-print(a.getAirlines(),'airlines')
-print(a.getAircrafttypes(),'aircrafttypes')
-print(a.getDestinations(),'destinations')
