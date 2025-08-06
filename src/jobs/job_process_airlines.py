@@ -15,7 +15,7 @@ class JobAirlines:
 
       return None
 
-
-job = JobAirlines()
-job.initJob()
+if __name__ == "__main__":
+   job = JobAirlines()
+   job.initJob()
 

@@ -15,7 +15,7 @@ class JobAircraftTypes:
 
       return self.schipol.getAircrafttypes()
 
-
-job = JobAircraftTypes()
-job.initJob()
+if __name__ == "__main__":
+   job = JobAircraftTypes()
+   job.initJob()
 

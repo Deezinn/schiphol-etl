@@ -13,6 +13,7 @@ class JobDestinations:
       self.schipolTransform.transformToDataframe(rawContent)
       return None
 
-job = JobDestinations()
-job.initJob()
+if __name__ == "__main__":
+   job = JobDestinations()
+   job.initJob()
 

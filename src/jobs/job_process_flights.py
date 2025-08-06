@@ -13,6 +13,7 @@ class JobFlights:
       return None
 
 
-job = JobFlights()
-job.initJob()
+if __name__ == "__main__":
+   job = JobFlights()
+   job.initJob()
 
