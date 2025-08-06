@@ -20,7 +20,7 @@ class SchipholHttp:
          return result.json()
       except Exception as e:
          raise e
-      return print(self.contentFlights)
+      return self.contentFlights
 
    def getDestinations(self):
       try:
@@ -28,7 +28,7 @@ class SchipholHttp:
          return result.json()
       except Exception as e:
          raise e
-      return print(self.contentFlights)
+      return self.contentFlights
 
    def getAircrafttypes(self):
       try:
@@ -36,7 +36,7 @@ class SchipholHttp:
          return result.json()
       except Exception as e:
          raise e
-      return print(self.contentFlights)
+      return self.contentFlights
 
    def getFlights(self):
       try:
@@ -44,7 +44,7 @@ class SchipholHttp:
          return result.json()
       except Exception as e:
          raise e
-      return print(self.contentFlights)
+      return self.contentFlights
 
    def getJsonUrl(self):
       try:
