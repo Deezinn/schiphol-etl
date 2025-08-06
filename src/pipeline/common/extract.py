@@ -58,14 +58,18 @@ class SchipholHttp:
    def getUrlApiFromJson(self):
       contentJson = self.getJsonUrl()
       for k,v in contentJson.items():
-         if k == 'flights':
-            self.__flightsApiUrl = v
-         if k == 'airlines':
-            self.__airlinesApiUrl = v
-         if k == 'destinations':
-            self.__destinationsApiUrl = v
-         if k == 'aircrafttypes':
-            self.__aircrafttypesApiUrl = v
+         match k:
+            case 'flights':
+               self.__flightsApiUrl = v
+            case 'airlines':
+               self.__airlinesApiUrl = v
+            case 'destinations':
+               self.__destinationsApiUrl = v
+            case 'aircrafttypes':
+               self.__aircrafttypesApiUrl = v
+            case _:
+               return "Não achamos a opção desejada"
+
       else:
          return 'Não achamos sua fonte de dados'
 
