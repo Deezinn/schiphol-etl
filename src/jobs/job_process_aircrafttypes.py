@@ -12,9 +12,9 @@ class JobAircraftTypes:
       rawContent = self.schipol.getAircrafttypes()
 
       processContent = self.schipolTransform.transformToDataframe(rawContent)
-
-      save_in_csv(processContent)
-      return processContent
+      print(processContent)
+      # save_in_csv(processContent)
+      # return processContent
 
 if __name__ == "__main__":
    job = JobAircraftTypes()
