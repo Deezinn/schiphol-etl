@@ -4,10 +4,10 @@ import os
 load_dotenv()
 
 credentials = {
-   "accept": os.getenv("accept"),
-   "app_id": os.getenv('app_id'),
-   "app_key": os.getenv('app_key'),
-   "ResourceVersion": os.getenv("ResourceVersion")
+   "accept": os.getenv("ACCEPT"),
+   "app_id": os.getenv('APP_ID'),
+   "app_key": os.getenv('APP_KEY'),
+   "ResourceVersion": os.getenv("RESOURCE_VERSION")
 }
 
 

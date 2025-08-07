@@ -17,34 +17,34 @@ class SchipholHttp:
    def getAirlines(self):
       try:
          result = requests.get(self.__airlinesApiUrl, headers=credentials)
-         return result.json()
       except Exception as e:
          raise e
-      return self.contentFlights
+      else:
+         return result.json()
 
    def getDestinations(self):
       try:
          result = requests.get(self.__destinationsApiUrl, headers=credentials)
-         return result.json()
       except Exception as e:
          raise e
-      return self.contentFlights
+      else:
+         return result.json()
 
    def getAircrafttypes(self):
       try:
          result = requests.get(self.__aircrafttypesApiUrl, headers=credentials)
-         return result.json()
       except Exception as e:
          raise e
-      return self.contentFlights
+      else:
+         return result.json()
 
    def getFlights(self):
       try:
          result = requests.get(self.__flightsApiUrl, headers=credentials)
-         return result.json()
       except Exception as e:
          raise e
-      return self.contentFlights
+      else:
+         return result.json()
 
    def getJsonUrl(self):
       try:
