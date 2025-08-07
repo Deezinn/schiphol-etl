@@ -1,6 +1,6 @@
 from src.pipeline.common.extract import SchipholHttp
 from src.pipeline.aircrafttypes.transform import Transform
-
+from src.pipeline.aircrafttypes.load import save_in_csv
 
 class JobAircraftTypes:
    def __init__(self):
@@ -11,9 +11,10 @@ class JobAircraftTypes:
       self.schipol.getUrlApiFromJson()
       rawContent = self.schipol.getAircrafttypes()
 
-      self.schipolTransform.transformToDataframe(rawContent)
+      processContent = self.schipolTransform.transformToDataframe(rawContent)
 
-      return self.schipol.getAircrafttypes()
+      save_in_csv(processContent)
+      return processContent
 
 if __name__ == "__main__":
    job = JobAircraftTypes()
