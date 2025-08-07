@@ -8,10 +8,10 @@ class JobFlights:
       self.schipolTransform = Transform()
 
    def initJob(self):
-      self.schipol.getUrlApiFromJson()
       rawContent = self.schipol.getFlights()
 
       processContent = self.schipolTransform.transformToDataframe(rawContent)
+      print(processContent)
       save_in_csv(processContent)
       return processContent
 

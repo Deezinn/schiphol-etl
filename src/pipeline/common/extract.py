@@ -1,22 +1,27 @@
-import json
+
+import time
 
 import pandas as pd
 import requests
 
 from ...config.env_credentials import credentials
-import time
+from ..json.load_json import JsonLoad
+
 
 class SchipholHttp:
-   def __init__(self, url_config_path='urls.json'):
-      self.__flightsApiUrl = None
-      self.__airlinesApiUrl = None
-      self.__destinationsApiUrl = None
-      self.__aircrafttypesApiUrl = None
-      self.url_config_path = url_config_path
+   def __init__(self):
+      self.json = JsonLoad()
+      if self.json:
+         self.__flightsApiUrl = self.json.getJsonUrl()['flights']
+         self.__airlinesApiUrl = self.json.getJsonUrl()['airlines']
+         self.__destinationsApiUrl = self.json.getJsonUrl()['destinations']
+         self.__aircrafttypesApiUrl = self.json.getJsonUrl()['aircrafttypes']
+
 
    def getAirlines(self):
       try:
          result = requests.get(self.__airlinesApiUrl, headers=credentials)
+         result.raise_for_status()
       except Exception as e:
          raise e
       else:
@@ -25,6 +30,7 @@ class SchipholHttp:
    def getDestinations(self):
       try:
          result = requests.get(self.__destinationsApiUrl, headers=credentials)
+         result.raise_for_status()
       except Exception as e:
          raise e
       else:
@@ -33,6 +39,7 @@ class SchipholHttp:
    def getAircrafttypes(self):
       try:
          result = requests.get(self.__aircrafttypesApiUrl, headers=credentials)
+         result.raise_for_status()
       except Exception as e:
          raise e
       else:
@@ -41,35 +48,9 @@ class SchipholHttp:
    def getFlights(self):
       try:
          result = requests.get(self.__flightsApiUrl, headers=credentials)
+         result.raise_for_status()
       except Exception as e:
          raise e
       else:
          return result.json()
-
-   def getJsonUrl(self):
-      try:
-         with open(self.url_config_path, 'r') as file:
-            self.__contentJson = json.load(file)
-            return self.__contentJson
-      except Exception as e:
-         raise FileExistsError("Erro ao carregar arquivo", e)
-
-
-   def getUrlApiFromJson(self):
-      contentJson = self.getJsonUrl()
-      for k,v in contentJson.items():
-         match k:
-            case 'flights':
-               self.__flightsApiUrl = v
-            case 'airlines':
-               self.__airlinesApiUrl = v
-            case 'destinations':
-               self.__destinationsApiUrl = v
-            case 'aircrafttypes':
-               self.__aircrafttypesApiUrl = v
-            case _:
-               return "Não achamos a opção desejada"
-
-      else:
-         return 'Não achamos sua fonte de dados'
 

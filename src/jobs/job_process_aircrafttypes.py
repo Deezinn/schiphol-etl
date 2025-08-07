@@ -8,7 +8,6 @@ class JobAircraftTypes:
       self.schipolTransform = Transform()
 
    def initJob(self):
-      self.schipol.getUrlApiFromJson()
       rawContent = self.schipol.getAircrafttypes()
 
       processContent = self.schipolTransform.transformToDataframe(rawContent)
