@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 
 from ...config.env_credentials import credentials
-from ..json.load_json import JsonLoad
+from ...json.load_json import JsonLoad
 
 
 class SchipholHttp:

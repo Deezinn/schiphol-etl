@@ -1,6 +1,5 @@
 import json
 
-
 class JsonLoad:
     def __init__(self, url_config_path = 'urls.json') :
         self.__contentJson = None
