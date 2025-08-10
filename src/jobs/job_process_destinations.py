@@ -9,8 +9,7 @@ class JobDestinations:
 
    def initJob(self):
       rawContent = self.schipol.getDestinations()
-
       processContent = self.schipolTransform.transformToDataframe(rawContent)
-      save_in_csv(processContent['dataframe'], processContent['tag'])
+      return save_in_csv(processContent['dataframe'], processContent['tag'])
 
 

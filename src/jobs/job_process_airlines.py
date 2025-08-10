@@ -9,8 +9,6 @@ class JobAirlines:
 
    def initJob(self):
       rawContent = self.schipol.getAirlines()
-
       processContent = self.schipolTransform.transformToDataframe(rawContent)
-      save_in_csv(processContent['dataframe'], processContent['tag'])
-      return processContent
+      return save_in_csv(processContent['dataframe'], processContent['tag'])
 
