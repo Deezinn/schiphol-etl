@@ -7,7 +7,8 @@ class Transform:
    def transformToDataframe(self,contents):
       aircraft = contents['airlines']
       df = pd.DataFrame(aircraft)
-      return df
+      return {"dataframe": df,
+            "tag": "airlines"}
 
 
 
