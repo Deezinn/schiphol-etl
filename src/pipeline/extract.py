@@ -17,15 +17,18 @@ class SchipholHttp:
          raise TypeError("O tipo das urls é diferente, só aceita lista que contém objetos.")
 
       try:
-         for data in urls:
+         for idx, data in enumerate(urls):
             self.__objUrlApi[list(data.keys())[0]] = list(data.values())[0]
+
       except Exception as e:
          raise ValueError('')
       else:
          try:
             for link in self.__objUrlApi.values():
+
                tempData = requests.get(link, headers=credentials)
                tempData.raise_for_status()
+
                if tempData.status_code == 200:
                   self.__content.append(tempData.json())
          except:

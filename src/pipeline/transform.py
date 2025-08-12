@@ -11,20 +11,23 @@ class SchipholTransform:
       self.__aircrafttypes = None
 
    def loadContentContext(self,contents):
-      for content in contents:
-         if list(content.keys())[0] == 'flights':
-            self.__flights = list(content.values())[0]
-         if list(content.keys())[0] == 'airlines':
-            self.__airlines = list(content.values())[0]
-         if list(content.keys())[0] == 'destinations':
-            self.__destinations = list(content.values())[0]
-         if list(content.keys())[0] == 'aircrafttypes':
-            self.__aircrafttypes = list(content.values())[0]
-      return ''
+      mapping = {
+            'flights': '_SchipholTransform__flights',
+            'airlines': '_SchipholTransform__airlines',
+            'destinations': '_SchipholTransform__destinations',
+            'aircraftTypes': '_SchipholTransform__aircrafttypes'
+      }
 
-   def printConten(self):
-      dataframe1 = pd.DataFrame(self.__flights)
-      dataframe2 = pd.DataFrame(self.__airlines)
-      dataframe3 = pd.DataFrame(self.__destinations)
-      dataframe4 = pd.DataFrame(self.__aircrafttypes)
-      print(dataframe1)
+      for content in contents:
+         key = list(content.keys())[0]
+         value = list(content.values())[0]
+
+         if key in mapping:
+            setattr(self, mapping[key], value)
+
+   def __repr__(self):
+      return f"Flights: {self.__flights}, Airlines: {self.__airlines}, Destinations: {self.__destinations}, AircraftTypes: {self.__aircrafttypes}"
+
+
+   def returnEntity(self):
+      print(self.__airlines)

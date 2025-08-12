@@ -12,7 +12,7 @@ class Job:
    def initJob(self):
       rawContent = self.schipol.getDataFromApi(URLAPI)
       processContent = self.schipolTransform.loadContentContext(rawContent)
-      self.schipolTransform.printConten()
+      self.schipolTransform.returnEntity()
 
       # return save_in_csv(processContent['dataframe'], processContent['tag'])
 
