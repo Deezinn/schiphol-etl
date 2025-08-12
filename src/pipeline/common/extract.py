@@ -6,51 +6,33 @@ import requests
 
 from ...config.env_credentials import credentials
 from ...json.load_json import JsonLoad
-
+from ...constants import URLAPI
 
 class SchipholHttp:
    def __init__(self):
-      self.json = JsonLoad()
-      if self.json:
-         self.__flightsApiUrl = self.json.getJsonUrl()['flights']
-         self.__airlinesApiUrl = self.json.getJsonUrl()['airlines']
-         self.__destinationsApiUrl = self.json.getJsonUrl()['destinations']
-         self.__aircrafttypesApiUrl = self.json.getJsonUrl()['aircrafttypes']
+      self.__objUrlApi = {}
+      self.__content = []
 
+   def getDataFromApi(self, urls):
+      if not urls:
+         raise InterruptedError("Não achei as urls.")
 
-   def getAirlines(self):
+      if type(urls):
+         raise TypeError("O tipo das urls é diferente, só aceita lista que contém objetos.")
+
       try:
-         result = requests.get(self.__airlinesApiUrl, headers=credentials)
-         result.raise_for_status()
+         for data in urls:
+            self.__objUrlApi[list(data.keys())[0]] = list(data.values())[0]
       except Exception as e:
-         raise e
+         raise ValueError('')
       else:
-         return result.json()
-
-   def getDestinations(self):
-      try:
-         result = requests.get(self.__destinationsApiUrl, headers=credentials)
-         result.raise_for_status()
-      except Exception as e:
-         raise e
-      else:
-         return result.json()
-
-   def getAircrafttypes(self):
-      try:
-         result = requests.get(self.__aircrafttypesApiUrl, headers=credentials)
-         result.raise_for_status()
-      except Exception as e:
-         raise e
-      else:
-         return result.json()
-
-   def getFlights(self):
-      try:
-         result = requests.get(self.__flightsApiUrl, headers=credentials)
-         result.raise_for_status()
-      except Exception as e:
-         raise e
-      else:
-         return result.json()
-
+         try:
+            for link in self.__objUrlApi.values():
+               tempData = requests.get(link, headers=credentials)
+               tempData.raise_for_status()
+               if tempData.status_code == 200:
+                  self.__content.append(tempData.text)
+         except:
+            pass
+         else:
+            return self.__content
