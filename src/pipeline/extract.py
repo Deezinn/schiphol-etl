@@ -1,12 +1,8 @@
-
-import time
-
 import pandas as pd
 import requests
+import json
 
-from ...config.env_credentials import credentials
-from ...json.load_json import JsonLoad
-from ...constants import URLAPI
+from ..config.env_credentials import credentials
 
 class SchipholHttp:
    def __init__(self):
@@ -17,7 +13,7 @@ class SchipholHttp:
       if not urls:
          raise InterruptedError("Não achei as urls.")
 
-      if type(urls):
+      if not isinstance(urls, list):
          raise TypeError("O tipo das urls é diferente, só aceita lista que contém objetos.")
 
       try:
@@ -31,8 +27,9 @@ class SchipholHttp:
                tempData = requests.get(link, headers=credentials)
                tempData.raise_for_status()
                if tempData.status_code == 200:
-                  self.__content.append(tempData.text)
+                  self.__content.append(tempData.json())
          except:
             pass
          else:
             return self.__content
+
