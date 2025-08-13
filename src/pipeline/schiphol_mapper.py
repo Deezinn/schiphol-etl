@@ -1,5 +1,3 @@
-
-
 class SchipholMapper:
   def __init__(self):
     self.__flights = None
@@ -9,7 +7,7 @@ class SchipholMapper:
 
   def load_from_contents(self, contents):
     for content in contents:
-      
+
         key = list(content.keys())[0]
         value = list(content.values())[0]
 

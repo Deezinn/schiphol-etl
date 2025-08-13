@@ -13,7 +13,7 @@ class Job:
       self.schipholMapper = SchipholMapper()
       self.schipolEntity = SchipholEntity()
       self.schipolTransform = None
-      
+
    def initJob(self):
       rawContent = self.schipolExtract.get_Data_FromApi(URLAPI)
       separatedContent= self.schipholMapper.load_from_contents(rawContent)
@@ -24,11 +24,4 @@ class Job:
          self.schipolTransform.transform_aircraftTypes()
          self.schipolTransform.transform_airlines()
          self.schipolTransform.transform_destinations()
-
-
       # return save_in_csv(processContent['dataframe'], processContent['tag'])
-
-
-
-job = Job()
-job.initJob()
