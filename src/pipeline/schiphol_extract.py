@@ -4,12 +4,12 @@ import json
 
 from ..config.env_credentials import credentials
 
-class SchipholHttp:
+class SchipholExtract:
    def __init__(self):
       self.__objUrlApi = {}
       self.__content = []
 
-   def getDataFromApi(self, urls):
+   def get_Data_FromApi(self, urls):
       if not urls:
          raise InterruptedError("Não achei as urls.")
 
