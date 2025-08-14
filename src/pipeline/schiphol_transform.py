@@ -11,6 +11,7 @@ class SchipholTransform:
          return []
       else:
          flightsDataframe = pd.DataFrame(self.entitys[entityKey])
+         
 
          # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(flightsDataframe, pd.DataFrame):
@@ -47,6 +48,7 @@ class SchipholTransform:
          return []
       else:
          aircraftTypes = pd.DataFrame(self.entitys[entityKey])
+
       # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(aircraftTypes, pd.DataFrame):
          aircraftTypes.to_csv(f'src/data/raw/{entityKey}.csv')

@@ -1,4 +1,4 @@
-class SchipholMapper:
+class SchipholContentsParser:
   def __init__(self):
     self.__flights = None
     self.__airlines = None
