@@ -4,3 +4,5 @@ URLAPI = [
   {"destinations": "https://api.schiphol.nl/public-flights/destinations?sort=%2Biata"},
   {"aircrafttypes": "https://api.schiphol.nl/public-flights/aircrafttypes?sort=%2BiataMain"}
 ]
+
+default_path_db_local = 'src/database/schipholLocal.db'

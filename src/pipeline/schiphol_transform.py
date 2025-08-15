@@ -10,8 +10,8 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         flightsDataframe = pd.DataFrame(self.entitys[entityKey])
-         
+         flightsDataframe = None
+
 
          # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(flightsDataframe, pd.DataFrame):
@@ -23,7 +23,7 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         airlinesDataframe = pd.DataFrame(self.entitys[entityKey])
+         airlinesDataframe = None
 
       # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(airlinesDataframe, pd.DataFrame):
@@ -35,7 +35,7 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         destinationsDataframe = pd.DataFrame(self.entitys[entityKey])
+         destinationsDataframe = None
 
       # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(destinationsDataframe, pd.DataFrame):
@@ -47,7 +47,7 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         aircraftTypes = pd.DataFrame(self.entitys[entityKey])
+         aircraftTypes = None
 
       # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
       if isinstance(aircraftTypes, pd.DataFrame):
