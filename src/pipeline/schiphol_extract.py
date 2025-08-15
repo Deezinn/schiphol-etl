@@ -1,7 +1,8 @@
 import pandas as pd
 import requests
 import json
-from requests import ConnectionError, ConnectTimeout, HTTPError, JSONDecodeError
+from requests import RequestException
+
 from ..config.env_credentials import credentials
 
 class SchipholExtract:
@@ -34,8 +35,9 @@ class SchipholExtract:
                   self.__content.append(tempData.json())
                else:
                   raise ValueError(f"Deu erro -> status_code: {tempData.status_code}")
-         except:
-            pass
+         except RequestException as e:
+            raise RuntimeError("Erro ao acessar o link", {e}) from e
+         except ValueError as e:
+            raise RuntimeError("Erro no json.", {e}) from e
          else:
             return self.__content
-

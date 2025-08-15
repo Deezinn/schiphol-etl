@@ -1,6 +1,6 @@
 from src.pipeline.schiphol_extract import SchipholExtract
 from src.pipeline.schiphol_transform import SchipholTransform
-from src.infrastructure.loaders.schiphol_contents_parser import SchipholContentsParser
+from src.infrastructure.parser.schiphol_contents_parser import SchipholContentsParser
 
 # from src.pipeline.load import save_in_csv
 from ..constants import URLAPI
