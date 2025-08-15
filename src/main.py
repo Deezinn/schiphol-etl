@@ -1,4 +1,4 @@
-from .jobs.job_process import Job
+from .jobs import Job
 
 class SchipholOrchestrator:
   def __init__(self):
