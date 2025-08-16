@@ -5,7 +5,7 @@ class SchipholOrchestrator:
     self.job = Job()
 
   def run_all(self):
-    self.job.initJob()
+    self.job.init_job()
 
 
 if __name__ == "__main__":

@@ -10,12 +10,9 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         flightsDataframe = None
-
-
-         # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
-      if isinstance(flightsDataframe, pd.DataFrame):
-         flightsDataframe.to_csv(f'src/data/raw/{entityKey}.csv')
+         flightsDataframe = pd.DataFrame(self.entitys[entityKey])
+         if isinstance(flightsDataframe, pd.DataFrame):
+            return flightsDataframe
 
    def transform_airlines(self):
       airlinesDataframe = None
@@ -23,11 +20,9 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         airlinesDataframe = None
-
-      # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
-      if isinstance(airlinesDataframe, pd.DataFrame):
-         airlinesDataframe.to_csv(f'src/data/raw/{entityKey}.csv')
+         airlinesDataframe = pd.DataFrame(self.entitys[entityKey])
+         if isinstance(airlinesDataframe, pd.DataFrame):
+            return airlinesDataframe
 
    def transform_destinations(self):
       destinationsDataframe = None
@@ -35,11 +30,9 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         destinationsDataframe = None
-
-      # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
-      if isinstance(destinationsDataframe, pd.DataFrame):
-         destinationsDataframe.to_csv(f'src/data/raw/{entityKey}.csv')
+         destinationsDataframe = pd.DataFrame(self.entitys[entityKey])
+         if isinstance(destinationsDataframe, pd.DataFrame):
+            return destinationsDataframe
 
    def transform_aircraftTypes(self):
       aircraftTypes = None
@@ -47,11 +40,9 @@ class SchipholTransform:
       if not self.entitys[entityKey]:
          return []
       else:
-         aircraftTypes = None
-
-      # isso vai para a camada de load apenas salvando em .csv para fazer o EDA e tratar os dados corretamente
-      if isinstance(aircraftTypes, pd.DataFrame):
-         aircraftTypes.to_csv(f'src/data/raw/{entityKey}.csv')
+         aircraftTypes = pd.DataFrame(self.entitys[entityKey])
+         if isinstance(aircraftTypes, pd.DataFrame):
+            return aircraftTypes
 
    def load_all(self):
       self.transform_aircraftTypes()

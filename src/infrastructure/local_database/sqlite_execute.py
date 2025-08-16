@@ -13,6 +13,7 @@ class SqliteDatabase:
         cursor = connection.cursor()
         print("Iniciando query")
         cursor.execute(query)
+        print("Query finalizada")
         print("Conexão finalizada")
         connection.commit()
     except sqlite3.Error as e:
